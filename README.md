@@ -1,6 +1,6 @@
 # SWPP Practice Session #6
 
-**Due: 10/8 (Fri), 21:00**
+**Due: 10/3 (Thur), 21:00**
 
 ### Today's Task
 1. Fork this repo.
@@ -11,7 +11,7 @@ Note that you need to start from creating a new Django project. (No skeleton cod
 Run `django-admin startproject toh` at the root of this repo. 
 
 ```
-git clone https://github.com/{YOUR_GITHUB_ID}/swpp2021-django-practice.git
-cd swpp2021-django-practice
+git clone https://github.com/{YOUR_GITHUB_ID}/swpp-p6-django-tutorial.git
+cd swpp-p6-django-tutorial
 django-admin startproject toh
 ```
