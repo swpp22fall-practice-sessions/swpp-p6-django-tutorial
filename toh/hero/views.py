@@ -12,7 +12,7 @@ from .models import Hero
 def index(request):
     return HttpResponse('Hello World!')
 
-def hero_id(request, id=""):
+def hero_id(request, id=None):
     return HttpResponse(f"Your id is {id}!")
 
 def hero_name(request, name=""):
@@ -30,12 +30,35 @@ def hero_list(request):
         try:
             body = request.body.decode()
             hero_name = json.loads(body)['name']
+            hero_age = json.loads(body)['age']
         except (KeyError, JSONDecodeError) as e:
             return HttpResponseBadRequest
-        hero = Hero(name=hero_name)
+        hero = Hero(name=hero_name, age=hero_age)
         hero.save()
-        response_dict = {'id': hero.id, 'name': hero.name}
+        response_dict = {'id': hero.id, 'name': hero.name, 'age': hero.age}
         return JsonResponse(response_dict, status=201)
     else:
         return HttpResponseNotAllowed(["GET", "POST"])
-    
+
+@csrf_exempt
+def hero_info(request, id=None):
+    if request.method == "GET":
+        hero = Hero.objects.get(id=id)
+        # if we pass hero, it would not be serializable
+        return JsonResponse({"id": id, "name": hero.name, "age": hero.age})
+    elif request.method == "PUT":
+        # decode json data
+        try:
+            body = request.body.decode()
+            hero_name = json.loads(body)['name']
+            hero_age = json.loads(body)['age']
+        except (KeyError, JSONDecodeError) as e:
+            return HttpResponseBadRequest
+        hero_found = Hero.objects.get(id=id)
+        # update
+        hero_found.name = hero_name
+        hero_found.age = hero_age
+        hero_found.save()
+        return JsonResponse({"id": id, "name": hero_found.name, "age": hero_found.age}, status=201)
+    else:
+        return HttpResponseNotAllowed(["GET", "PUT"])
