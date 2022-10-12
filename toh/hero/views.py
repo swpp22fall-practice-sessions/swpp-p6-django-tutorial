@@ -1,3 +1,13 @@
-from django.shortcuts import render
+from django.http import HttpRequest, HttpResponse
 
-# Create your views here.
+
+def index(request: HttpRequest):
+    return HttpResponse("Hello, world!")
+
+
+def echo_id(request: HttpRequest, id: int):
+    return HttpResponse(f"Your id is {id}!")
+
+
+def echo_name(requset: HttpRequest, name: str):
+    return HttpResponse(f"Your name is {name}!")
