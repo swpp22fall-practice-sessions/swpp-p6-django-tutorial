@@ -7,7 +7,7 @@ class Hero(models.Model):
     score = models.IntegerField(default=0)
 
     def introduce(self):
-        return f"Hello, my name is ${self.name} and my score is {self.score}!"
+        return f"Hello, my name is {self.name} and my score is {self.score}!"
 
     def __str__(self):
         return self.name
