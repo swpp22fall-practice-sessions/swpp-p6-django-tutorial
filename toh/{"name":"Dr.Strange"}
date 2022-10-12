@@ -1,0 +1,9 @@
+HTTP/1.1 400 Bad Request
+Date: Wed, 12 Oct 2022 11:20:23 GMT
+Server: WSGIServer/0.2 CPython/3.8.10
+Content-Type: text/html; charset=utf-8
+X-Frame-Options: DENY
+Content-Length: 41
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+
