@@ -1,0 +1,25 @@
+{
+  "completed": "2022-10-12T09:55:34.651331Z",
+  "periodic": true,
+  "started": "2022-10-12T09:55:21.789137Z",
+  "versions": [
+    {
+      "filename": "setuptools-65.4.1-py3-none-any.whl",
+      "found_date": "2022-10-12T09:55:22.495606Z",
+      "release_date": "2022-09-30T01:00:04.000000Z",
+      "source": "periodic"
+    },
+    {
+      "filename": "setuptools-65.4.0-py3-none-any.whl",
+      "found_date": "2022-10-12T09:55:27.448534Z",
+      "release_date": "2022-09-24T20:40:59.000000Z",
+      "source": "periodic"
+    },
+    {
+      "filename": "setuptools-65.3.0-py3-none-any.whl",
+      "found_date": "2022-10-12T09:55:31.576946Z",
+      "release_date": "2022-08-24T11:09:27.000000Z",
+      "source": "periodic"
+    }
+  ]
+}
