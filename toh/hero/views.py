@@ -33,5 +33,41 @@ def hero_list(request: HttpRequest) :
             'id': hero.id,
             'name': hero.name
         }
+        return JsonResponse(response_dict, status=201)
 
-    return JsonResponse(response_dict, status=201)
+    else :
+        return HttpResponseBadRequest()
+
+@csrf_exempt
+def hero_info(request: HttpRequest, id: int) :
+    if request.method == "GET" :
+        try :
+            hero = Hero.objects.get(id = id)
+        except Hero.DoesNotExist :
+            return HttpResponseBadRequest()
+        return JsonResponse({
+            "id": hero.id,
+            "name": hero.name,
+            "age": hero.age,
+        })
+    elif request.method == "PUT" :
+        try: 
+            body = request.body.decode()
+            hero_name = json.loads(body)['name']
+            hero_age = json.loads(body)['age']
+            hero = Hero.objects.get(id = id)
+        except (KeyError, json.JSONDecodeError, Hero.DoesNotExist) as e:
+            return HttpResponseBadRequest()
+        except :
+            return HttpResponseBadRequest()
+        
+        hero.name = hero_name
+        hero.age = int(hero_age)
+        hero.save()
+        
+        return JsonResponse({
+            "id": hero.id,
+            "name": hero.name,
+            "age": hero.age,
+        })
+    return
