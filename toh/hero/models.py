@@ -11,7 +11,7 @@ class Hero(models.Model):
         return self.name
 
     def introduce(self):
-        print('Hello, my name is {self.name} and my score is {self.score}')
+        print('Hello, my name is {} and my score is {}!'.format(self.name, self.score))
 
 class Team(models.Model):
     name = models.CharField(max_length=120)
