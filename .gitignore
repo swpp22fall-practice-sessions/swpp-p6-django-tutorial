@@ -1,3 +1,5 @@
+# ide
+.idea/
 # env
 /django-env/
 
