@@ -1,0 +1,13 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = keetae423
+	email = 55076957+keetae423@users.noreply.github.com
+[core]
+	autocrlf = true
+	safecrlf = false
+[credential]
+	helper = "!f() { /home/docker/.vscode-server/bin/129500ee4c8ab7263461ffe327268ba56b9f210d/node /tmp/vscode-remote-containers-3ab9fb246240b4d2625d9df629afd985ab5022a7.js $*; }; f"
